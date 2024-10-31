@@ -108,3 +108,61 @@ pip install pandas matplotlib seaborn scikit-learn joblib
 ## Next Steps
 
 With the trained models saved, the next step is to use these models for real-time fraud detection in future tasks. This may involve serving predictions via an API or further tuning the models for improved accuracy.
+
+## Task 3: Model Explainability
+
+### Objective
+Enhance the interpretability of the trained fraud detection model using SHAP (SHapley Additive exPlanations) and LIME (Local Interpretable Model-agnostic Explanations) to provide insights into feature importance and model decision-making.
+
+### Steps Completed
+
+1. **SHAP Explainability**:
+   - **Summary Plot**: Generated a bar plot to display the overall feature importance, providing a high-level view of which features most impact the model’s fraud predictions.
+   - **Force Plot**: Visualized how individual feature values contribute to specific predictions, using SHAP force plots to illustrate the feature impact on single-instance fraud predictions.
+   - **Dependence Plot**: Created SHAP dependence plots to understand relationships between certain features (like `purchase_value`) and the model’s fraud probability predictions.
+
+2. **LIME Explainability**:
+   - Initialized a **LIME Tabular Explainer** to examine the model’s predictions on individual cases, helping to interpret which features influenced each specific prediction.
+   - Generated LIME explanations for selected instances, revealing feature contributions in an interpretable, case-by-case format.
+
+### Results
+- **Key Insights**: The analysis identified `purchase_value` and `transaction_frequency` as significant indicators in the fraud detection model, with a strong correlation to fraud likelihood.
+- **Enhanced Interpretability**: By applying SHAP and LIME, we gained clear insights into the model’s decision process, enabling transparency and trust in its predictions.
+
+These interpretability tools empowered us to better understand the feature interactions and contributions within our fraud detection model, preparing it for deployment and real-world application in subsequent tasks.
+## Task 4: Model Deployment and API Development
+
+### Objective
+Deploy the trained fraud detection model as a Flask API, making it accessible for real-time fraud detection requests. Containerize the API using Docker for portability and scalability.
+
+### Steps Completed
+
+1. **Flask API Development**:
+   - Created a Flask API with endpoints to serve model predictions and check API status.
+   - Integrated logging to track requests, making it easy to monitor predictions and identify any issues.
+
+2. **Dockerization**:
+   - Developed a `Dockerfile` to containerize the Flask API.
+   - The Docker container provides a portable, scalable solution that allows the API to be deployed in various environments.
+
+### How to Run
+
+1. Build the Docker image:
+   ```bash
+   docker build -t fraud-detection-api .
+
+
+ask 5: Dashboard Creation
+Objective
+Develop an interactive dashboard using Dash to visualize fraud detection insights, enabling stakeholders to monitor fraud trends and analyze key metrics in real-time.
+
+Steps Completed
+Dashboard Development:
+
+Built a Dash dashboard integrated with a Flask backend to visualize key fraud insights interactively.
+The dashboard provides an accessible, web-based interface for stakeholders to explore trends and metrics.
+Dashboard Features:
+
+Time Series Visualization: Displays fraud cases over time to monitor temporal trends.
+Geographical Analysis: Maps fraud cases by country for geographic insights.
+Device/Browser Insights: Shows fraud distribution across different devices and browsers.
