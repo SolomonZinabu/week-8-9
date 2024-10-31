@@ -4,3 +4,8 @@ seaborn
 scikit-learn
 shap 
 lime
+flask
+joblib 
+dash 
+dash-bootstrap-components 
+plotly
